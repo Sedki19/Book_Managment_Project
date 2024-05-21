@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Books.ApplicationBooksControlor">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Book List" GridPane.columnIndex="1">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <TableView fx:id="bookTable" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2147483647" GridPane.rowIndex="2">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="37.60003662109375" text="Id" />
+          <TableColumn fx:id="title" minWidth="0.0" prefWidth="159.199951171875" text="Title" />
+            <TableColumn fx:id="author" prefWidth="144.0" text="Author" />
+            <TableColumn fx:id="addedDate" prefWidth="123.199951171875" text="Added date" />
+            <TableColumn fx:id="rating" prefWidth="74.4000244140625" text="Rating" />
+            <TableColumn fx:id="status" prefWidth="65.60003662109375" text="Status" />
+        </columns>
+      </TableView>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Filter By :" />
+                  <ComboBox fx:id="filterSelect" onAction="#filter" prefWidth="150.0" />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="225.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <CheckBox fx:id="Accomplished" mnemonicParsing="false" onAction="#AccomplishedFilter" prefHeight="18.0" prefWidth="239.0" text="Accomplished" />
+                        <CheckBox fx:id="unAccomplished" mnemonicParsing="false" onAction="#AccomplishedFilter" prefHeight="18.0" prefWidth="169.0" text="To be read" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label text="Search : ">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="2.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="search" onKeyReleased="#searchFun" promptText="Search ..." />
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="addBook" mnemonicParsing="false" onAction="#addBookFun" text="Add Book" />
+                  <Button fx:id="deleteBook" mnemonicParsing="false" onAction="#deleteBook" text="Delete Book" />
+                  <Button fx:id="Markbarr" mnemonicParsing="false" onAction="#setRead" text="Mark Book as (Accomplished/To be read)" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Button fx:id="logout" mnemonicParsing="false" onAction="#logOutFun" text="Logout" GridPane.columnIndex="2">
+         <GridPane.margin>
+            <Insets bottom="100.0" left="142.0" />
+         </GridPane.margin>
+      </Button>
+      <Label fx:id="userLib" text="[User Library]" textFill="#0073ff">
+         <GridPane.margin>
+            <Insets bottom="70.0" left="30.0" />
+         </GridPane.margin>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</GridPane>
